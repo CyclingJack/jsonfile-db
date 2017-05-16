@@ -42,7 +42,7 @@ import io.jsondb.tests.model.PojoWithEnumFields.Status;
  * @version 1.0 06-Oct-2016
  */
 public class PojoWithEnumFieldsTest {
-  private String dbFilesLocation = "src/test/resources/dbfiles/pojowithenumfieldsTests";
+  private String dbFilesLocation = "test/resources/dbfiles/pojowithenumfieldsTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File pojoWithEnumFieldsJson = new File(dbFilesFolder, "pojowithenumfields.json");
 
@@ -51,7 +51,7 @@ public class PojoWithEnumFieldsTest {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/pojowithenumfields.json"), pojoWithEnumFieldsJson);
+    Files.copy(new File("test/resources/dbfiles/pojowithenumfields.json"), pojoWithEnumFieldsJson);
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model");
   }
 

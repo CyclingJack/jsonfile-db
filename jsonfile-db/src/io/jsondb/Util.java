@@ -43,6 +43,7 @@ import java.util.UUID;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import io.jsondb.annotation.Document;
+import java.util.logging.Level;
 import org.pmw.tinylog.Logger;
 
 /**
@@ -148,6 +149,23 @@ public class Util {
       }
     }
     return id;
+  }
+  
+  protected static String setDBRefKey(Object document, Method setterMethodForRefKey) {
+      Object refkey = UUID.randomUUID().toString();
+      if (setterMethodForRefKey != null) {
+          try {
+              refkey = setterMethodForRefKey.invoke(document, refkey);
+
+          } catch (IllegalAccessException ex) {
+              Logger.error("Das Feld für die Referenzschluessel ist nicht beschreibbar!");
+          } catch (IllegalArgumentException ex) {
+              Logger.error("Das Referenzfeld wurde mit einem ungültigen Argument beschrieben");
+          } catch (InvocationTargetException ex) {
+              Logger.error("Das Feld für den Referenzschlüssel ist mit der Methode nicht beschreibbar");
+          } 
+      }
+     return (String) refkey; 
   }
 
   protected static Object setFieldValueForEntity(Object document, Object newValue, Method setterMethod) {

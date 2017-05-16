@@ -54,7 +54,7 @@ public class InitializeDBTests {
 
   private ObjectMapper objectMapper = null;
 
-  private String dbFilesLocation = "src/test/resources/dbfiles/initializationTests";
+  private String dbFilesLocation = "test/resources/dbfiles/initializationTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   private ICipher cipher;
@@ -62,7 +62,7 @@ public class InitializeDBTests {
   @Before
   public void setup() throws IOException {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     try {
       cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
     } catch (GeneralSecurityException e) {

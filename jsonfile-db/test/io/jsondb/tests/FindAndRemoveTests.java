@@ -47,7 +47,7 @@ import io.jsondb.tests.model.Site;
  * @version 1.0 11-Oct-2016
  */
 public class FindAndRemoveTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/findAndRemoveTests";
+  private String dbFilesLocation = "test/resources/dbfiles/findAndRemoveTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
 
@@ -59,7 +59,7 @@ public class FindAndRemoveTests {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     ICipher cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", cipher);
   }

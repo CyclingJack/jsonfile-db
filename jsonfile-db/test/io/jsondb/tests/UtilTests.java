@@ -39,7 +39,7 @@ import io.jsondb.tests.model.PojoForPrivateSetIdTest;
  * @version 1.0 27-Oct-2016
  */
 public class UtilTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/utilTests";
+  private String dbFilesLocation = "test/resources/dbfiles/utilTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   
   private JsonDBTemplate jsonDBTemplate = null;

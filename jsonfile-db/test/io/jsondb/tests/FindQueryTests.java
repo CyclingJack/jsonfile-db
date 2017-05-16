@@ -52,7 +52,7 @@ import io.jsondb.tests.model.Instance;
  */
 public class FindQueryTests {
 
-  private String dbFilesLocation = "src/test/resources/dbfiles/findQueryTests";
+  private String dbFilesLocation = "test/resources/dbfiles/findQueryTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
 
@@ -64,7 +64,7 @@ public class FindQueryTests {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     ICipher cipher = null;
     try {
       cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");

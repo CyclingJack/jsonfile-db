@@ -46,7 +46,7 @@ import org.junit.Test;
  * @version 1.0 06-Oct-2016
  */
 public class CreateDropCollectionTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/createDropCollectionTests";
+  private String dbFilesLocation = "test/resources/dbfiles/createDropCollectionTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   private File sitesJson = new File(dbFilesFolder, "sites.json");
@@ -56,7 +56,7 @@ public class CreateDropCollectionTests {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", false, new DefaultSchemaVersionComparator());
   }
 

@@ -50,7 +50,7 @@ import io.jsondb.tests.util.TestUtils;
  * @version 1.0 25-Oct-2016
  */
 public class CollectionSchemaUpdateTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/collectionUpdateTests";
+  private String dbFilesLocation = "test/resources/dbfiles/collectionUpdateTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File loadbalancerJson = new File(dbFilesFolder, "loadbalancer.json");
 
@@ -62,7 +62,7 @@ public class CollectionSchemaUpdateTests {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/loadbalancer.json"), loadbalancerJson);
+    Files.copy(new File("test/resources/dbfiles/loadbalancer.json"), loadbalancerJson);
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", null, true, null);
   }
 

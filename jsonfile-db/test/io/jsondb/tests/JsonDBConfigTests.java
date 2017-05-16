@@ -42,16 +42,16 @@ import io.jsondb.crypto.ICipher;
  */
 public class JsonDBConfigTests {
 
-  private String dbFilesLocation = "src/test/resources/dbfiles/dbConfigTests";
+  private String dbFilesLocation = "test/resources/dbfiles/dbConfigTests";
 
   @Test
   public void testDbConfig() {
     JsonDBConfig dbConfig = new JsonDBConfig(dbFilesLocation, "io.jsondb.tests.model", null, false,
         new DefaultSchemaVersionComparator());
 
-    assertEquals("src/test/resources/dbfiles/dbConfigTests", dbConfig.getDbFilesLocationString());
-    assertEquals(new File("src/test/resources/dbfiles/dbConfigTests"), dbConfig.getDbFilesLocation());
-    assertEquals(new File("src/test/resources/dbfiles/dbConfigTests").toPath(), dbConfig.getDbFilesPath());
+    assertEquals("test/resources/dbfiles/dbConfigTests", dbConfig.getDbFilesLocationString());
+    assertEquals(new File("test/resources/dbfiles/dbConfigTests"), dbConfig.getDbFilesLocation());
+    assertEquals(new File("test/resources/dbfiles/dbConfigTests").toPath(), dbConfig.getDbFilesPath());
     assertEquals(Charset.forName("UTF-8"), dbConfig.getCharset());
     assertNull(dbConfig.getCipher());
     assertFalse(dbConfig.isCompatibilityMode());

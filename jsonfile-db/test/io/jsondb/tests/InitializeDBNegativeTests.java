@@ -51,7 +51,7 @@ import io.jsondb.crypto.ICipher;
  */
 public class InitializeDBNegativeTests {
 
-  private String dbFilesLocation = "src/test/resources/dbfiles/dbInitializationTests";
+  private String dbFilesLocation = "test/resources/dbfiles/dbInitializationTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   
@@ -114,7 +114,7 @@ public class InitializeDBNegativeTests {
   
   @Test
   public void testDBInitializationforMissingFile() throws IOException, GeneralSecurityException {
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     ICipher cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
     JsonDBTemplate jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", cipher);
     

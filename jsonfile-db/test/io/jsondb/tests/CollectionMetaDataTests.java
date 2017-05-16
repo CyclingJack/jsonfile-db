@@ -48,7 +48,7 @@ import io.jsondb.tests.model.Volume;
  * @version 1.0 06-Oct-2016
  */
 public class CollectionMetaDataTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/collectionMetadataTests";
+  private String dbFilesLocation = "test/resources/dbfiles/collectionMetadataTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   ICipher cipher = null;
@@ -56,7 +56,7 @@ public class CollectionMetaDataTests {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
   }
 

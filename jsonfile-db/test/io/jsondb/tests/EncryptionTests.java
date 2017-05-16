@@ -46,11 +46,11 @@ import io.jsondb.tests.util.TestUtils;
  * @version 1.0 22-Oct-2016
  */
 public class EncryptionTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/encryptionTests";
+  private String dbFilesLocation = "test/resources/dbfiles/encryptionTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   
-  private String dbFilesLocation2 = "src/test/resources/dbfiles/encryptionTests2";
+  private String dbFilesLocation2 = "test/resources/dbfiles/encryptionTests2";
 
   private JsonDBTemplate jsonDBTemplate = null;
   private JsonDBTemplate unencryptedjsonDBTemplate = null;
@@ -61,7 +61,7 @@ public class EncryptionTests {
   @Before
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     ICipher cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
 
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", cipher);

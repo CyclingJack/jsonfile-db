@@ -50,7 +50,7 @@ import io.jsondb.tests.util.TestUtils;
  * @version 1.0 08-Oct-2016
  */
 public class UpsertTests {
-  private String dbFilesLocation = "src/test/resources/dbfiles/upsertTests";
+  private String dbFilesLocation = "test/resources/dbfiles/upsertTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   private File volumesJson = new File(dbFilesFolder, "volumes.json");
@@ -65,7 +65,7 @@ public class UpsertTests {
   public void setUp() throws Exception {
     dbFilesFolder.mkdir();
     cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
-    Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+    Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", cipher);
   }
 

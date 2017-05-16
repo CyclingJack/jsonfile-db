@@ -58,7 +58,7 @@ import io.jsondb.tests.util.TestUtils;
 public class FileChangeListenerTests {
 
   private static final long DB_RELOAD_TIMEOUT = 5 * 1000;
-  private String dbFilesLocation = "src/test/resources/dbfiles/eventsTests";
+  private String dbFilesLocation = "test/resources/dbfiles/eventsTests";
   private File dbFilesFolder = new File(dbFilesLocation);
   private File instancesJson = new File(dbFilesFolder, "instances.json");
   private File pojoWithEnumFieldsJson = new File(dbFilesFolder, "pojowithenumfields.json");
@@ -76,7 +76,7 @@ public class FileChangeListenerTests {
     assumeTrue(!TestUtils.isMac());
 
     dbFilesFolder.mkdir();
-    Files.copy(new File("src/test/resources/dbfiles/pojowithenumfields.json"), pojoWithEnumFieldsJson);
+    Files.copy(new File("test/resources/dbfiles/pojowithenumfields.json"), pojoWithEnumFieldsJson);
     ICipher cipher = new DefaultAESCBCCipher("1r8+24pibarAWgS85/Heeg==");
 
     jsonDBTemplate = new JsonDBTemplate(dbFilesLocation, "io.jsondb.tests.model", cipher);
@@ -122,7 +122,7 @@ public class FileChangeListenerTests {
     
     assertFalse(jsonDBTemplate.collectionExists(Instance.class));
     try {
-      Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+      Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     } catch (IOException e1) {
       fail("Failed to copy data store files");
     }
@@ -140,7 +140,7 @@ public class FileChangeListenerTests {
   @Test
   public void testAutoReloadOnCollectionFileModified() throws FileNotFoundException {
     try {
-      Files.copy(new File("src/test/resources/dbfiles/instances.json"), instancesJson);
+      Files.copy(new File("test/resources/dbfiles/instances.json"), instancesJson);
     } catch (IOException e1) {
       fail("Failed to copy data store files");
     }
@@ -163,7 +163,7 @@ public class FileChangeListenerTests {
     });
 
     @SuppressWarnings("resource")
-    Scanner sc = new Scanner(new File("src/test/resources/dbfiles/instances.json")).useDelimiter("\\Z");
+    Scanner sc = new Scanner(new File("test/resources/dbfiles/instances.json")).useDelimiter("\\Z");
     String content = sc.next();
     sc.close();
 
