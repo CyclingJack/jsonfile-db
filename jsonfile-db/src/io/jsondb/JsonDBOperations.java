@@ -515,4 +515,16 @@ public interface JsonDBOperations {
    * @param merge whether to merge data from restore location
    */
   void restore(String restorePath, boolean merge);
+  
+  /**
+   * This Method joining two datasets, specified by the id from source and destination
+   * 
+   * @param sourcekey
+   * @param destkey
+   * @param entityclass
+   * 
+   */
+ 
+  
+  
 }
