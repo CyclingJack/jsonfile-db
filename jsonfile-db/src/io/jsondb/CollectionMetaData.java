@@ -80,7 +80,7 @@ public class CollectionMetaData {
         this.collectionLock = new ReentrantReadWriteLock();
 
         //Populate the class metadata
-        DBRefs = new LinkedHashMap();
+        DBRefs = new LinkedHashMap<String,DBReference>();
         Field[] fs = clazz.getDeclaredFields();
         Method[] ms = clazz.getDeclaredMethods();
         for (Field f : fs) {
