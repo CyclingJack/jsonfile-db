@@ -1550,7 +1550,7 @@ public class JsonDBTemplate implements JsonDBOperations {
             }
         }
         try {
-            Method s = sc.getDeclaredMethod(scgettermethod, null);
+            Method s = sc.getDeclaredMethod(scgettermethod, (Class[]) null);
             String p = (String) s.invoke(sourceObj);
 
             Field df = dc.getDeclaredField(destField);
@@ -1567,13 +1567,13 @@ public class JsonDBTemplate implements JsonDBOperations {
             }
             if (p == null) {
                 String rs = UUID.randomUUID().toString();
-                Method sm = sc.getMethod(scsettermethod, rs.getClass());
+                Method sm = sc.getDeclaredMethod(scsettermethod, rs.getClass());
                 sm.invoke(sourceObj, rs);
 
-                Method dm = dc.getMethod(dcsettermethod, rs.getClass());
+                Method dm = dc.getDeclaredMethod(dcsettermethod, rs.getClass());
                 dm.invoke(destObj, rs);
             } else {
-                Method d = dc.getMethod(dcsettermethod, p.getClass());
+                Method d = dc.getDeclaredMethod(dcsettermethod, p.getClass());
                 d.invoke(destObj, p);
             }
             this.upsert(sourceObj);
@@ -1583,14 +1583,19 @@ public class JsonDBTemplate implements JsonDBOperations {
             Logger.error("NoSuchMethodExeption");
             java.util.logging.Logger.getLogger(JsonDBTemplate.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SecurityException ex) {
+            Logger.error("SecurityException");
             java.util.logging.Logger.getLogger(JsonDBTemplate.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
+            Logger.error("IllegalAccessException");
             java.util.logging.Logger.getLogger(JsonDBTemplate.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalArgumentException ex) {
+            Logger.error("IllegalArgumentException");
             java.util.logging.Logger.getLogger(JsonDBTemplate.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InvocationTargetException ex) {
+            Logger.error("InvokationTargetException");
             java.util.logging.Logger.getLogger(JsonDBTemplate.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NoSuchFieldException ex) {
+            Logger.error("Feld not found");
             java.util.logging.Logger.getLogger(JsonDBTemplate.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.reloadCollection(destCollection);
